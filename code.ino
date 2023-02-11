@@ -21,9 +21,10 @@ void loop() {
   int sensorStatus2 = digitalRead(IR2);
   if (sensorStatus1==1)
   {
-  	if(Nobusypark<=5)
-  	{
     	Nobusypark=Nobusypark+1;
+  	if(Nobusypark<=50)
+  	{
+    
       
     	for (pos = 180; pos >= 0; pos -= 1) 
         { 
@@ -31,7 +32,7 @@ void loop() {
     	delay(15);        
   		}
     }
-    else if (Nobusypark>5)
+    else if (Nobusypark>=50)
     {
       for (pos = 0; pos <= 180; pos += 1) 
       { 
@@ -55,6 +56,7 @@ void loop() {
     }
   else if(sensorStatus2==1)
   {
+    	Nobusypark=Nobusypark-1;
     if(Nobusypark>0)
     {
     Nobusypark=Nobusypark-1;
